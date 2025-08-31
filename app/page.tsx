@@ -102,9 +102,6 @@ export default function Home() {
   ];
   return (
     <div className="wrapper">
-      <div className={`loading fixed bg-slate-800 h-full w-full justify-center gap-0 z-[9999] flex ${isLoaded ? "hidden" : "block"}`}>
-        <h1 className="inline-block m-auto text-center font-bold text-4xl w-full text-slate-200">Loading_</h1>
-      </div>
       <div className={`notMobile fixed bg-slate-200 w-full h-full ${isOnMobile ? "hidden" : "block"}`}>
         <div className="textContent flex gap-7 h-full w-1/2 m-auto">
           <h1 className="m-auto text-red-600 font-bold flex-shrink text-3xl">ONLY ON MOBILE!</h1>
