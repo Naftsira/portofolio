@@ -22,26 +22,22 @@ export default function Home() {
     if (typeof window !== "undefined") {
       setIsOnMobile(window.innerWidth < 640);
     }
-  }, []);
+  });
   useEffect(() => {
-    if (typeof document !== "undefined") {
-      if (document.readyState === "complete") {
-        setIsLoaded(true);
-      } else {
-        setIsLoaded(false);
-      }
-    }
-    window.addEventListener("resize", () => {
+    window.addEventListener("load", () => {
+      setIsLoaded(true);
+    });
+  }, []);
+  window.addEventListener("resize", () => {
+    setIsOnMobile(window.innerWidth < 640);
+  });
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      setIsScrollPass(true);
       setIsOnMobile(window.innerWidth < 640);
-    });
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 100) {
-        setIsScrollPass(true);
-        setIsOnMobile(window.innerWidth < 640);
-      } else {
-        setIsScrollPass(false);
-      }
-    });
+    } else {
+      setIsScrollPass(false);
+    }
   });
 
   // Nav
