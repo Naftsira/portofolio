@@ -19,13 +19,17 @@ export default function Home() {
   const [isScrollPass, setIsScrollPass] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   useLayoutEffect(() => {
-    setIsOnMobile(window.innerWidth < 640);
-  });
+    if (typeof window !== "undefined") {
+      setIsOnMobile(window.innerWidth < 640);
+    }
+  }, []);
   useEffect(() => {
-    if (document.readyState === "complete") {
-      setIsLoaded(true);
-    } else {
-      setIsLoaded(false);
+    if (typeof document !== "undefined") {
+      if (document.readyState === "complete") {
+        setIsLoaded(true);
+      } else {
+        setIsLoaded(false);
+      }
     }
     window.addEventListener("resize", () => {
       setIsOnMobile(window.innerWidth < 640);
