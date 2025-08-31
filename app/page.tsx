@@ -24,10 +24,6 @@ export default function Home() {
     }
   });
   useEffect(() => {
-    window.addEventListener("load", () => {
-      setIsLoaded(true);
-    });
-
     window.addEventListener("resize", () => {
       setIsOnMobile(window.innerWidth < 640);
     });
@@ -38,6 +34,9 @@ export default function Home() {
       } else {
         setIsScrollPass(false);
       }
+      window.addEventListener("load", () => {
+        setIsLoaded(true);
+      });
     });
   });
 
