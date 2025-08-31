@@ -27,17 +27,18 @@ export default function Home() {
     window.addEventListener("load", () => {
       setIsLoaded(true);
     });
-  }, []);
-  window.addEventListener("resize", () => {
-    setIsOnMobile(window.innerWidth < 640);
-  });
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 100) {
-      setIsScrollPass(true);
+
+    window.addEventListener("resize", () => {
       setIsOnMobile(window.innerWidth < 640);
-    } else {
-      setIsScrollPass(false);
-    }
+    });
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        setIsScrollPass(true);
+        setIsOnMobile(window.innerWidth < 640);
+      } else {
+        setIsScrollPass(false);
+      }
+    });
   });
 
   // Nav
