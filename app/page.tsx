@@ -14,9 +14,25 @@ import { SiCplusplus, SiLeetcode, SiPython, SiTailwindcss } from "react-icons/si
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Home() {
-  const [isOnMobile, setIsOnMobile] = useState(() => window.innerWidth < 640);
-  // Nav
+  const [isOnMobile, setIsOnMobile] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrollPass, setIsScrollPass] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      window.addEventListener("resize", () => {
+        setIsOnMobile(window.innerWidth < 640);
+      });
+      if (window.scrollY > 100) {
+        setIsScrollPass(true);
+        setIsOnMobile(window.innerWidth < 640);
+        console.log(isOnMobile);
+      } else {
+        setIsScrollPass(false);
+      }
+    });
+  });
 
+  // Nav
   const navItems = [
     {
       name: "Who is Naft?",
@@ -31,23 +47,6 @@ export default function Home() {
       link: "#skills",
     },
   ];
-
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrollPass, setIsScrollPass] = useState(false);
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 100) {
-        setIsScrollPass(true);
-        setIsOnMobile(window.innerWidth < 640);
-        console.log(isOnMobile);
-      } else {
-        setIsScrollPass(false);
-      }
-    });
-    window.addEventListener("resize", () => {
-      setIsOnMobile(window.innerWidth < 640);
-    });
-  });
 
   // Bounce Img
   const images = ["/img/p1.jpg", "/img/p2.jpg", "/img/a5.jpg", "/img/p3.jpg", "/img/p4.jpg"];
