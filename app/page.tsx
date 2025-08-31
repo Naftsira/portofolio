@@ -12,7 +12,6 @@ import { AnimatedTestimonials } from "./components/ui/animated-testimonials";
 import LogoLoop from "./components/LogoLoop/LogoLoop";
 import { SiCplusplus, SiLeetcode, SiPython, SiTailwindcss } from "react-icons/si";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../lib/icons/icon";
 
 export default function Home() {
   const [isOnMobile, setIsOnMobile] = useState(() => window.innerWidth < 640);
