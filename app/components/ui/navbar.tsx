@@ -174,7 +174,7 @@ export const MobileNavToggle = ({ isOpen, onClick }: { isOpen: boolean; onClick:
 };
 
 export const NavbarButton = ({
-  href,
+  href = "#naft",
   as: Tag = "a",
   children,
   className,

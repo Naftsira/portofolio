@@ -120,7 +120,7 @@ export default function Home() {
               </NavBody>
 
               {/* Mobile Nav */}
-              <MobileNav className={`bg-transparent   backdrop-blur-3xl  border-amber-400 ${isScrollPass ? "border-t-2" : "border-none"}`}>
+              <MobileNav className={`backdrop-blur-3xl  border-amber-400 ${isScrollPass ? "border-t-2 bg-slate-900/40" : "border-none bg-transparent"}`}>
                 <MobileNavHeader>
                   <NavbarButton variant="secondary" className="text-amber-400">
                     Naftalists.
@@ -149,17 +149,19 @@ export default function Home() {
             {/* Navbar */}
           </div>
         </div>
-        <div className="header1 relative  ">
+        <div id="naft" className="header1 relative">
           <div className="backgroundwarp h-screen w-screen">
             <div className="backgroundheader -z-10 absolute top-0 h-full w-full ">
               <DarkVeil />
             </div>
-            <div className="heroText flex h-screen top-0 ">
-              <h1 className="inline-block grow-0 flex-none my-auto text-6xl font-bold mx-5 ">
-                Hello <br /> <TextType className="inline-block" text={["World!", "せかい!", "Welt!", "Monde!", "세계!", "العالم!", "世界!", "Wereld!"]} typingSpeed={200} deletingSpeed={100} pauseDuration={1500} cursorCharacter="_" />
+            <div className="heroText flex h-screen w-full m-auto gap-0  justify-center ">
+              <h1 className="inline-block  my-auto  text-6xl font-bold">
+                Hello <br /> <TextType className="inline-block w-64" text={["World!", "せかい!", "Welt!", "Monde!", "세계!", "العالم!", "世界!", "Wereld!"]} typingSpeed={200} deletingSpeed={100} pauseDuration={1500} cursorCharacter="_" />
               </h1>
-              <div className="vLine  h-20 w-0.5 absolute top-80 left-1/2 inline-block my-auto mx-auto bg-slate-100"></div>
-              <p className="inline-block absolute top-80 left-1/2 px-3 mx-3 text-xl">For Who dares to know!</p>
+              <div className="vLine  h-28 w-0.5 inline-block my-auto bg-slate-100"></div>
+              <p className="inline-block m-auto w-40 px-3 mx-3 text-xl">
+                For Who <br /> dares to know!
+              </p>
               <div className="imgList  h-1/4 w-full absolute bottom-12">
                 <BounceCards
                   className="custom-bounceCards mx-auto"
@@ -192,15 +194,15 @@ export default function Home() {
             <CurvedLoop marqueeText="My ✦ Projects ✦ " speed={1} curveAmount={500} direction="left" interactive={false} className="max-w-full max-h-full text-amber-400" />
           </div>
           <div className="cardItems min-h-screen flex flex-wrap gap-7 ">
-            <SpotlightCard className="h-56 w-2/3 max-w-lg container mx-auto bg-slate-700 shadow-xl border-slate-700" spotlightColor="rgba(255, 225, 255, 0.2)">
+            <SpotlightCard className="h-56 w-2/3 max-w-lg container mx-auto bg-slate-800 shadow-xl" spotlightColor="rgba(255, 225, 255, 0.2)">
               <h1 className="font-bold my-2 text-xl">OSIS Identity Online Card</h1>
               <p className="text-sm">OSIS identity pages for each members that can be scanned through barcode on a physical card. ex: osis/naftali.com. this project was made due the eficiency needs in internal budget.</p>
             </SpotlightCard>
-            <SpotlightCard className="h-56 w-2/3 max-w-lg container mx-auto bg-slate-800 shadow-xl border-slate-700" spotlightColor="rgba(255, 225, 255, 0.2)">
+            <SpotlightCard className="h-56 w-2/3 max-w-lg container mx-auto bg-slate-800 shadow-xl" spotlightColor="rgba(255, 225, 255, 0.2)">
               <h1 className="font-bold my-2 text-xl">AI Chat Box</h1>
               <p className="text-sm">An experiment with AI model especially with Gemini API--assisted by Gemini</p>
             </SpotlightCard>
-            <SpotlightCard className="h-56 w-2/3 max-w-lg container mx-auto bg-slate-700 shadow-xl border-slate-700 mb-4" spotlightColor="rgba(255, 225, 255, 0.2)">
+            <SpotlightCard className="h-56 w-2/3 max-w-lg container mx-auto bg-slate-800 shadow-xl mb-4" spotlightColor="rgba(255, 225, 255, 0.2)">
               <h1 className="font-bold my-2 text-xl">UKM Projects? </h1>
               <p className="text-sm">Perhaps, we can collaborate to make somethings new?</p>
             </SpotlightCard>
