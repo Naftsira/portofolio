@@ -84,7 +84,7 @@ type Props = {
   resolutionScale?: number;
 };
 
-export default function DarkVeil({ hueShift = 200, noiseIntensity = 0, scanlineIntensity = 0, speed = 1.5, scanlineFrequency = 0, warpAmount = 1.6, resolutionScale = 1 }: Props) {
+export default function DarkVeil({ hueShift = 200, noiseIntensity = 0, scanlineIntensity = 0, speed = 0.5, scanlineFrequency = 0, warpAmount = 1, resolutionScale = 1 }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const canvas = ref.current as HTMLCanvasElement;

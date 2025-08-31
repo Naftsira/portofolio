@@ -38,7 +38,7 @@ const TextType = ({
   cursorCharacter = "|",
   cursorClassName = "",
   cursorBlinkDuration = 0.5,
-  textColors = ["#fbbf24"],
+  textColors = [""],
   variableSpeed,
   onSentenceComplete,
   startOnVisible = false,

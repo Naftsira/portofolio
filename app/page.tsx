@@ -17,10 +17,12 @@ export default function Home() {
   const [isOnMobile, setIsOnMobile] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrollPass, setIsScrollPass] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   useLayoutEffect(() => {
-    window.addEventListener("load", () => {
-      setIsOnMobile(window.innerWidth < 640);
-    });
+    setIsOnMobile(window.innerWidth < 640);
+    if (document.readyState === "complete") {
+      setIsLoaded(true);
+    }
   });
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -97,7 +99,10 @@ export default function Home() {
     { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
   ];
   return (
-    <div className="wrapper scroll-smooth">
+    <div className="wrapper">
+      <div className={`loading fixed bg-slate-800 h-full w-full justify-center gap-0 z-[9999] flex ${isLoaded ? "hidden" : "block"}`}>
+        <h1 className="inline-block m-auto text-center font-bold text-4xl w-full text-slate-200">Loading_</h1>
+      </div>
       <div className={`notMobile fixed bg-slate-200 w-full h-full ${isOnMobile ? "hidden" : "block"}`}>
         <div className="textContent flex gap-7 h-full w-1/2 m-auto">
           <h1 className="m-auto text-red-600 font-bold flex-shrink text-3xl">ONLY ON MOBILE!</h1>
@@ -106,7 +111,7 @@ export default function Home() {
         </div>
       </div>
       <div className={`porto min-h-screen w-full bg text-slate-200 overflow-x-hidden scroll-smooth sm:accent-yellow-400 ${isOnMobile ? "block" : "hidden"}`}>
-        <div className="navBar fixed top-0 items-center z-[9999] w-full">
+        <div className="navBar fixed top-0 items-center z-[9998] w-full">
           <div id="nav" className="bg-transparent z-50">
             <Navbar>
               {/* Desktop Nav */}
@@ -156,7 +161,8 @@ export default function Home() {
             </div>
             <div className="heroText flex h-screen w-full m-auto gap-0  justify-center ">
               <h1 className="inline-block  my-auto  text-6xl font-bold">
-                Hello <br /> <TextType className="inline-block w-64" text={["World!", "せかい!", "Welt!", "Monde!", "세계!", "العالم!", "世界!", "Wereld!"]} typingSpeed={200} deletingSpeed={100} pauseDuration={1500} cursorCharacter="_" />
+                Hello <br />{" "}
+                <TextType className="inline-block text-amber-400 w-64" text={["World!", "せかい!", "Welt!", "Monde!", "세계!", "العالم!", "世界!", "Wereld!"]} typingSpeed={200} deletingSpeed={100} pauseDuration={1500} cursorCharacter="_" />
               </h1>
               <div className="vLine  h-28 w-0.5 inline-block my-auto bg-slate-100"></div>
               <p className="inline-block m-auto w-40 px-3 mx-3 text-xl">
@@ -224,7 +230,7 @@ export default function Home() {
           <img src="/img/p5.jpg" className="block mx-auto w-36 my-7 rounded-full  shadow-amber-400 border border-amber-400 hover:border-t-4 transition-all"></img>
           <h1 className="text-center font-bold text-2xl">Naftali</h1>
           <div className="social w-1/3 mx-auto my-7">
-            <div className="socialItems flex ">
+            <div className="socialItems flex gap-8 justify-center ">
               <a
                 href="https://github.com/Naftsira"
                 className="mx-auto bg-slate-800 text-xl shadow-md border rounded-lg border-slate-700 px-[0.6rem] py-2 hover:shadow-amber-500 hover:border-amber-400 transition-all duration-150 ease-out delay-75 hover:text-amber-500 hover:scale-110 "
@@ -249,7 +255,7 @@ export default function Home() {
           </div>
           <div className="resume p-3 mx-auto w-1/2 border border-slate-700 shadow-md rounded-full text-center hover:shadow-amber-500 hover:border-amber-400 transition-all duration-150 ease-out delay-75 hover:text-amber-500 hover:scale-110">
             <a href="/cv_naftali_3125600106.pdf" target="_blank" rel="noopener norefferer">
-              <h1>Download My Resume :D</h1>
+              <h1 className="p-2">Download My Resume :D</h1>
             </a>
           </div>
           <div className="copy mx-auto w-full absolute bottom-0">
