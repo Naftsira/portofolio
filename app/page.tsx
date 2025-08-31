@@ -14,9 +14,14 @@ import { SiCplusplus, SiLeetcode, SiPython, SiTailwindcss } from "react-icons/si
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "@/lib/icons/icon";
 export default function Home() {
-  const [isOnMobile, setIsOnMobile] = useState(false);
+  const [isOnMobile, setIsOnMobile] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrollPass, setIsScrollPass] = useState(false);
+  useLayoutEffect(() => {
+    window.addEventListener("load", () => {
+      setIsOnMobile(window.innerWidth < 640);
+    });
+  });
   useEffect(() => {
     window.addEventListener("resize", () => {
       setIsOnMobile(window.innerWidth < 640);
