@@ -12,20 +12,19 @@ import { AnimatedTestimonials } from "./components/ui/animated-testimonials";
 import LogoLoop from "./components/LogoLoop/LogoLoop";
 import { SiCplusplus, SiLeetcode, SiPython, SiTailwindcss } from "react-icons/si";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import "@/lib/icons/icon";
 export default function Home() {
   const [isOnMobile, setIsOnMobile] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrollPass, setIsScrollPass] = useState(false);
   useEffect(() => {
+    window.addEventListener("resize", () => {
+      setIsOnMobile(window.innerWidth < 640);
+    });
     window.addEventListener("scroll", () => {
-      window.addEventListener("resize", () => {
-        setIsOnMobile(window.innerWidth < 640);
-      });
       if (window.scrollY > 100) {
         setIsScrollPass(true);
         setIsOnMobile(window.innerWidth < 640);
-        console.log(isOnMobile);
       } else {
         setIsScrollPass(false);
       }
