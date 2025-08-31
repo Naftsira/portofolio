@@ -20,11 +20,13 @@ export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
   useLayoutEffect(() => {
     setIsOnMobile(window.innerWidth < 640);
-    if (document.readyState === "complete") {
-      setIsLoaded(true);
-    }
   });
   useEffect(() => {
+    if (document.readyState === "complete") {
+      setIsLoaded(true);
+    } else {
+      setIsLoaded(false);
+    }
     window.addEventListener("resize", () => {
       setIsOnMobile(window.innerWidth < 640);
     });
