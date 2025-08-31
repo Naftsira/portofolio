@@ -20,6 +20,9 @@ export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
   useLayoutEffect(() => {
     if (typeof window !== "undefined") {
+      window.addEventListener("load", () => {
+        setIsLoaded(true);
+      });
       setIsOnMobile(window.innerWidth < 640);
     }
   });
@@ -34,9 +37,6 @@ export default function Home() {
       } else {
         setIsScrollPass(false);
       }
-      window.addEventListener("load", () => {
-        setIsLoaded(true);
-      });
     });
   });
 
